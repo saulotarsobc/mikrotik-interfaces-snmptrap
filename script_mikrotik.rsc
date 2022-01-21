@@ -1,7 +1,7 @@
 # by saulo costa
 :global data "name,comment,linkdowns,rxbyte,txbyte,sfpTxPower,sfpRxPower,sfpTemperature,rate,sfpVendorSerial,sfpSupplyVoltage,sfpTxBiasCurrent";
 :global lista [/interface ethernet find running~"true"];
-:foreach i in=$lista do={\
+:foreach i in=$lista do={
     # GET
     :global name [/interface ethernet get $i name];
     :global comment [/interface ethernet get $i comment];
