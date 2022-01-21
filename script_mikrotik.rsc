@@ -20,9 +20,9 @@
         :global sfpTxBiasCurrent ($monitor->"sfp-tx-bias-current");
             if ($sfpTxBiasCurrent = "") do={set $sfpTxBiasCurrent 0};
 
-
     :set $data ($data."|".$name.",".$comment.",".$linkdowns.",".$rxbyte.",".$txbyte.",".$sfpTxPower.",".$sfpRxPower.",".$sfpTemperature.",".$rate.",".$sfpVendorSerial.",".$sfpSupplyVoltage.",".$sfpTxBiasCurrent);
 
-    :delay 1s;
+    # :delay 1s;
 }
-### fim
+/snmp send-trap oid=1.3.6.444.445 type=string value=$data;
+### 
